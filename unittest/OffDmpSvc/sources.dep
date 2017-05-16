@@ -1,0 +1,7 @@
+PUBLIC_PASS1_CONSUMES= \
+    onecore\redist\mspartners\taef\ref|PASS1 \
+    onecore\redist\mspartners\taef\ref\netfx4.5\te.managed|PASS1 \
+    onecore\redist\mspartners\taef\ref\netfx4.5\wex.common.managed|PASS1 \
+    onecore\redist\mspartners\taef\ref\netfx4.5\wex.logger.interop|PASS1 \
+    onecore\redist\mspartners\vs2010\vsts\binary_release\msil|PASS1 \
+

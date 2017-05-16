@@ -1,0 +1,77 @@
+; WpCrasher.inf
+; Copyright (c) 2000,2011 Microsoft Corporation
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = HIDClass
+ClassGUID   = {745A17A0-74D3-11D0-B6FE-00A0C90F57DA}
+Provider    = %MSFT%
+DriverVer   = 07/23/2012,1.0
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+WpCrasher.sys  = 1,,
+
+[Manufacturer]
+%Manufacturer_Name% = Standard,NTARM,NTARM64
+
+[Standard.NTARM]
+%WpCrDriver_Device_Desc% = WpCrDriver_Device.NT, ACPI\WP_CRASHER
+
+[Standard.NTARM64]
+%WpCrDriver_Device_Desc% = WpCrDriver_Device.NT, ACPI\WP_CRASHER
+
+;*****************************************
+; WpCrDriver client driver Install Section
+;*****************************************
+
+[WpCrDriver_Device.NT]
+CopyFiles = WpCrDriver_Device.NT.CopyFiles
+
+[WpCrDriver_Device.NT.CopyFiles]
+WpCrasher.sys,,,0x100
+
+
+;-------------- Service installation
+[WpCrDriver_Device.NT.Services]
+AddService = %WpCrDriver_Service%, %SPSVCINST_ASSOCSERVICE%, WpCrDriver_Service_Inst
+
+; ------------- WpCrDriver driver install section
+[WpCrDriver_Service_Inst]
+DisplayName    = %WpCrDriver_Service_Desc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_AUTO_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\WpCrasher.sys
+LoadOrderGroup = Base
+
+; ------------- Strings section
+[Strings]
+MSFT                    = "MSFT"
+Manufacturer_Name       = "MSFT"
+Installation_Disk       = "WpCrasher Driver Installation Disk"
+WpCrDriver_Device_Desc  = "WpCrasher Driver"
+WpCrDriver_Service      = "WpCrasher"
+WpCrDriver_Service_Desc = "MSFT WpCrasher Driver Service"
+HIDKMDF_Service         = "mshidkmdf"
+Configuration           = "Settings"
+
+; ------------- non-localizable strings
+SPSVCINST_ASSOCSERVICE  = 0x00000002
+SERVICE_KERNEL_DRIVER   = 1
+SERVICE_BOOT_START      = 0
+SERVICE_SYSTEM_START    = 1
+SERVICE_AUTO_START      = 2
+SERVICE_DEMAND_START    = 3
+SERVICE_ERROR_NORMAL    = 1
+SERVICE_ERROR_IGNORE    = 0
+SERVICE_ERROR_CRITICAL  = 3
+REG_EXPAND_SZ           = 0x00020000
+REG_MULTI_SZ            = 0x00010000
+REG_DWORD               = 0x00010001
+REG_SZ                  = 0x00000000

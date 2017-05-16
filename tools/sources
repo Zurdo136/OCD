@@ -1,0 +1,51 @@
+TARGETNAME=makeRawdump
+TARGETTYPE=PROGRAM
+
+TEST_CODE=1
+USE_MSVCRT=1
+USE_ATL=1
+ATL_VER=70
+USE_STL=1
+STL_VER=70
+USE_NATIVE_EH=1
+
+_NT_TARGET_VERSION=$(_NT_TARGET_VERSION_WIN7)
+
+UMTYPE=console
+UMENTRY=wmain
+
+C_DEFINES = $(C_DEFINES) -DUNICODE -D_UNICODE
+
+INCLUDES=\
+    $(INCLUDES); \
+    ..\..\common\include; \
+    ..\..\logging; \
+    $(INTERNAL_SDK_INC_PATH); \
+    $(NET_INC_PATH); \
+    $(SDK_INC_PATH); \
+    $(DDK_INC_PATH); \
+    $(DDK_PATH)\inc; \
+    $(SDKTOOLS_INC_PATH); \
+    $(BASE_INC_PATH); \
+    $(MINWIN_PRIV_SDK_INC_PATH)\net\netio; \
+    $(MINWIN_PRIV_SDK_INC_PATH)\net; \
+    $(MINWIN_PRIV_SDK_INC_PATH); \
+    $(KIT_SHARED_INC_PATH); \
+
+SOURCES=\
+    apreg.cpp \
+
+TARGETLIBS=\
+    $(SDK_LIB_PATH)\ntdll.lib \
+    $(SDK_LIB_PATH)\mincore.lib \
+    $(SDK_LIB_PATH)\strsafe.lib \
+    $(SDK_LIB_PATH)\uuid.lib \
+    $(SDK_LIB_PATH)\ole32.lib \
+    $(SDK_LIB_PATH)\xmllite.lib \
+    $(SDK_LIB_PATH)\dbgeng.lib \
+    $(SDK_LIB_PATH)\msi.lib \
+    $(SDK_LIB_PATH)\dbgeng.lib \
+    $(OBJECT_ROOT)\base\diagnosis\offlinecrashdump\logging\$(O)\offdmplogging.lib \
+    $(BASE_LIB_PATH)\ocdcommonlib.lib
+
+TARGET_DESTINATION=tools\product\offdump\makeRawdump\src

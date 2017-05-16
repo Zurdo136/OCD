@@ -1,0 +1,27 @@
+TARGETNAME              =   Test.OCD.OffDmpSvc
+TARGETTYPE              =   DYNLINK
+TARGET_DESTINATION      =   TEST_AUTOMATION_BINS\PerfTest\OffDmpSvc
+TEST_CODE               =   1
+
+MANAGED_CODE            =   1
+TEST_CODE               =   1
+URT_VER                 =   4.5
+
+INCLUDES                = $(INCLUDES); \
+                        ..\..\offlinecrashdump\OffDmpSvc\src; \
+
+SOURCES                 =   Native.cs \
+                            OCDTest.cs \
+
+REFERENCES              =   $(CLR_REF_PATH)\System.metadata_dll; \
+                            $(CLR_REF_PATH)\System.Data.metadata_dll; \
+                            $(SDKTOOLS_REF_PATH)\vs2010\microsoft.visualstudio.qualitytools.unittestframework.metadata_dll; \
+                            $(SDKTOOLS_REF_PATH)\wextest\cue\wex.common.managed.metadata_dll; \
+                            $(SDKTOOLS_REF_PATH)\wextest\cue\wex.logger.interop.metadata_dll; \
+                            $(SDKTOOLS_REF_PATH)\wextest\cue\te.managed.metadata_dll; \
+
+VARIABLE_OVERRIDES=$(VARIABLE_OVERRIDES);OBJ_PATH=$(OBJ_PATH)
+VARIABLE_OVERRIDES=$(VARIABLE_OVERRIDES);TARGETNAME=$(TARGETNAME)
+SPKG_SOURCES=sources.pkg.xml
+SPKG_TARGET_DESTINATION=$(SPKG_DEFAULT_TARGET_DESTINATION)\test
+

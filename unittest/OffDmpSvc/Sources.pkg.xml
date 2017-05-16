@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright (c) Microsoft Corporation.  All rights reserved.-->
+<Package 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  Owner="Microsoft"
+  Component="Test.OCD.OffDmpSvc"
+  SubComponent=""
+  OwnerType="Microsoft"
+  ReleaseType="Test" xmlns="urn:Microsoft.WindowsPhone/PackageSchema.v8.00">
+  <Components>
+    <OSComponent>
+      <Files>
+        <File 
+          Source="$(OBJECT_ROOT)\base\diagnosis\offlinecrashdump\unittest\offdmpsvc\$(_BUILDALT)\$(TARGETNAME).dll"
+          DestinationDir="$(TEST_DEPLOY_BIN)"/>
+      </Files>
+    </OSComponent>
+  </Components>
+</Package>

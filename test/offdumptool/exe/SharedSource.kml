@@ -1,0 +1,115 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<Content
+    xmlns="http://microsoft.com/schemas/Windows/Kits/Manifest"
+    xmlns:wix="http://schemas.microsoft.com/wix/2006/wi"
+    >
+  <ContentGroup
+      BuildArchitecture="amd64"
+      BuildType="fre"
+      Destination="base\diagnosis\offlinecrashdump\test"
+      >
+    <FeatureReference Name="Windows Shared Source"/>
+    <TextFile Name="apreg64.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="apreg64.h">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="dbgClient.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="dbgClient.h">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="DbgUtil.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="DiskUtil.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="DiskUtil.h">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="DumpExtract32.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="DumpExtract64.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="Dumputil.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="Dumputil.h">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="kddebug.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="OffdumpTool.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="sources">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="VDSUtil.cpp">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="version.rc">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+    <TextFile Name="common.h">
+      <HSplit
+          Operation="Blank"
+          Tag="NOTPUBLICCODE"
+          />
+    </TextFile>
+  </ContentGroup>
+</Content>
