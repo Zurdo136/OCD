@@ -1,0 +1,50 @@
+TARGETNAME=raw2dumpEXE
+TARGETTYPE=PROGRAM
+
+TEST_CODE=1
+USE_MSVCRT=1
+USE_ATL=1
+ATL_VER=70
+USE_STL=1
+STL_VER=70
+USE_NATIVE_EH=1
+
+_NT_TARGET_VERSION=$(_NT_TARGET_VERSION_WIN7)
+
+UMTYPE=console
+UMENTRY=wmain
+
+C_DEFINES=  $(C_DEFINES) -DUNICODE -D_UNICODE 
+
+INCLUDES=\
+         $(INCLUDES); \
+         ..\src; \
+         $(INTERNAL_SDK_INC_PATH);\
+         $(SDK_INC_PATH); \
+         $(DDK_INC_PATH); \
+         $(DDK_PATH)\inc; \
+         $(SDKTOOLS_INC_PATH); \
+         $(BASE_INC_PATH); \
+         $(MINWIN_PRIV_SDK_INC_PATH); \
+         $(CORESYSTEM_PUB)\shared\inc\minwin; \
+         $(CORESYSTEM_PUB)\shared\inc; 
+
+
+SOURCES=\
+        raw2dumpexe.cpp \
+        raw2dumpexe.rc \
+
+
+TARGETLIBS=\
+    $(SDK_LIB_PATH)\shlwapi.lib \
+    $(ONECOREBASE_LIB_PATH)\loglib.lib \
+    $(SDK_LIB_PATH)\ole32.lib \
+    $(SDK_LIB_PATH)\kernel32.lib \
+    $(SDK_LIB_PATH)\strsafe.lib \
+    $(SDK_LIB_PATH)\dbgeng.lib \
+    $(SDK_LIB_PATH)\Wevtapi.lib \
+    $(SDK_LIB_PATH)\uuid.lib \
+    $(SDK_LIB_PATH)\version.lib \
+    $(MINCORE_PRIV_SDK_LIB_PATH)\ext-ms-win-wer-reporting-l1-1-0.lib \
+
+TARGET_DESTINATION=retail

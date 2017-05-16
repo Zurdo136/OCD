@@ -1,0 +1,4 @@
+DIRS=\
+    exe{noncrit} \
+    src{noncrit} \
+    test{noncrit} \

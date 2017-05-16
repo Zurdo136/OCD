@@ -1,0 +1,46 @@
+TARGETNAME=inteldump
+TARGETTYPE=LIBRARY
+
+MSC_WARNING_LEVEL=/W4 /WX
+BUILD_FOR_CORESYSTEM=1
+
+USE_MSVCRT=1
+USE_ATL=1
+ATL_VER=70
+USE_STL=1
+STL_VER=70
+USE_NATIVE_EH=1
+
+_NT_TARGET_VERSION=$(_NT_TARGET_VERSION_WIN7)
+
+INCLUDES=\
+        $(INCLUDES); \
+        ..\..\common\include; \
+        ..\wp_port; \
+        ..\src; \
+        ..\lib; \
+        ..\..\logging; \
+        $(INTERNAL_SDK_INC_PATH); \
+        $(SDK_INC_PATH); \
+        $(SDKTOOLS_INC_PATH); \
+        $(BASE_INC_PATH); \
+        $(MINWIN_PRIV_SDK_INC_PATH); \
+        $(_WINPHONEROOT)\src\drivers\product\drivers\wpcrdmp\sys; \
+        $(PUBLIC_WPINTERNAL_PATH)\DriversProduct\inc; \
+        $(DRIVERS_INC_PATH); \
+
+SOURCES=\
+        intelx86.cpp    \
+
+TARGETLIBS=\
+    $(TARGETLIBS) \
+    $(MINCORE_SDK_LIB_PATH)\mincore.lib \
+    $(SDK_LIB_PATH)\ntdll.lib \
+    $(SDK_LIB_PATH)\XmlLite.lib \
+    $(SDK_LIB_PATH)\user32.lib \
+    $(SDK_LIB_PATH)\shlwapi.lib \
+    $(SDK_LIB_PATH)\Uuid.lib \
+    $(OBJECT_ROOT)\base\diagnosis\offlinecrashdump\logging\$(O)\offdmplogging.lib \
+    
+TARGET_DESTINATION=retail
+    

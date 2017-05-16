@@ -1,0 +1,30 @@
+;//+-------------------------------------------------------------------------
+;//
+;//  Microsoft Windows
+;//
+;//  Copyright (C) Microsoft Corporation, 2014
+;//
+;//  File:       offdmpsvc.def
+;//
+;//--------------------------------------------------------------------------
+
+; offdumptool.def : Declares the module parameters.
+
+LIBRARY      "offdmpsvc.dll"
+
+EXPORTS
+    CheckAndSubmitOfflineCrash          PRIVATE
+    CheckAndSubmitOfflineCrashWrapper
+    IsOffDumpReadyWrapper
+    DetermineOfflineDumpVersionWrapper
+    CheckOfflineCrashdumpEnabledWrapper
+    IsSBLDumpExpectedWrapper
+    GetOfflineMemoryDumpUseCapabilityWrapper
+    LocateAndCopyRawDumpWrapper
+    GetDumpLocation
+    GetDumpFormat
+    VerifyRawDumpHeaderWrapper
+    CollateSDRawDumpsWrapper
+    VerifyRawDumpSectionTableWrapper
+    BuildDDRMemoryMapWrapper
+    GetDumpInstanceWrapper

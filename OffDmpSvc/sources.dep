@@ -1,0 +1,6 @@
+PUBLIC_PASS1_CONSUMES= \
+    redist\mspartners\vs2010\vsts\binary_release\msil|PASS1 \
+    sdktools\wextest\sparta\runtime\taef\managed\netfx4.5|PASS1 \
+    sdktools\wextest\sparta\runtime\wex.common\managed\netfx4.5|PASS1 \
+    sdktools\wextest\sparta\runtime\wex.logger\interop\netfx4.5|PASS1 \
+

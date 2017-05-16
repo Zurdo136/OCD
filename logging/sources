@@ -1,0 +1,47 @@
+TARGETNAME=offdmplogging
+TARGETTYPE=LIBRARY
+
+UMTYPE=console
+BUILD_FOR_CORESYSTEM=1
+
+USE_MSVCRT=1
+USE_ATL=1
+ATL_VER=70
+USE_STL=1
+STL_VER=70
+USE_NATIVE_EH=1
+
+_NT_TARGET_VERSION=$(_NT_TARGET_VERSION_WIN7)
+
+C_DEFINES=$(C_DEFINES) /DWIN32_LEAN_AND_MEAN
+C_DEFINES=$(C_DEFINES) /DPPCRL_EXPORTS /D_CLIENT_IS_PPCRL_
+
+MSC_WARNING_LEVEL=/W4 /WX
+
+DLLDEF=ofdumpsvc.def
+
+INCLUDES=\
+        ..\common\include; \
+        ..\OffDmpSvc\src; \
+        ..\OffDmpSvc\wp_port; \
+        $(INCLUDES); \
+        $(INTERNAL_SDK_INC_PATH); \
+        $(SDK_INC_PATH); \
+        $(SDKTOOLS_INC_PATH); \
+        $(BASE_INC_PATH); \
+        $(MINWIN_PRIV_SDK_INC_PATH); \
+        $(_WINPHONEROOT)\src\drivers\product\drivers\wpcrdmp\sys; \
+        $(PUBLIC_WPINTERNAL_PATH)\DriversProduct\inc; \
+        $(KIT_SHARED_INC_PATH); \
+        $(SHARED_INC_PATH); \
+        
+SOURCES=\
+        logging.cpp \
+
+TARGETLIBS=\
+    $(TARGETLIBS) \
+    $(SDK_LIB_PATH)\ntdll.lib   \
+    $(MINCORE_SDK_LIB_PATH)\mincore.lib \
+    $(SDK_LIB_PATH)\uuid.lib \
+
+TARGET_DESTINATION=retail

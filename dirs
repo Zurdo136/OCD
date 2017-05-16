@@ -1,0 +1,7 @@
+DIRS=\
+  common \
+  raw2dump \
+  OffDmpSvc \
+  logging \
+  test{amd64} \
+  unittest \
